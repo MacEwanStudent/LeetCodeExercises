@@ -9,4 +9,4 @@ class Solution:
             left[i] = left[i - 1] * nums[i - 1]
             right[n-1-i] = right[n-i] * nums[n - i]
     
-        return [left[i]*right[i] for i in range(len(nums))]
+        return [left[i]*right[i] for i in range(n)]
