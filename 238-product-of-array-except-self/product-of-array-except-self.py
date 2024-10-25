@@ -1,9 +1,7 @@
 import math
 
 class Solution:
-    def productExceptSelf(self, nums: List[int]) -> List[int]:
-        
-        result=[]
+    def productExceptSelf(self, nums: List[int]) -> List[int]:   
         n = len(nums)
         left, right= [1] * n, [1] * n
 
