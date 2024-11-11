@@ -13,9 +13,11 @@ class Solution:
         for i in range(n):
             current_sum += nums[i]
             diff = current_sum - target
-            j = sum_dict.get(diff, i)
 
-            current_len = max(current_len, i - j)
+            if diff >= 0:
+                j = sum_dict.get(diff, i)
+                current_len = max(current_len, i - j)
+                
 
             sum_dict[current_sum] = i
 
