@@ -17,7 +17,6 @@ class Solution:
             if diff >= 0:
                 j = sum_dict.get(diff, i)
                 current_len = max(current_len, i - j)
-                
 
             sum_dict[current_sum] = i
 
