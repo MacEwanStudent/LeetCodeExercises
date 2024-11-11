@@ -1,11 +1,12 @@
 class Solution:
     def minOperations(self, nums: List[int], x: int) -> int:
+        target = sum(nums) - x
         n= len(nums)
+
         current_sum = 0
         current_len = 0
         sum_dict= {0 : -1}
 
-        target = sum(nums) - x
         if target == 0:
             return n
 
