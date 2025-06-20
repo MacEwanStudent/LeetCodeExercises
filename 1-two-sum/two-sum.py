@@ -7,6 +7,7 @@ class Solution:
             diff = target - n
             if diff in prevMap:
                 twoSumIndex = [i, prevMap[diff]]
+                break
             else:
                 prevMap[n] = i
 
