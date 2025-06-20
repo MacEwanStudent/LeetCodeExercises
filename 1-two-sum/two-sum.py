@@ -1,23 +1,14 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        num_index = {}
-        result = []
+        prevMap = {} # val : index
+        twoSumIndex= []
 
-        for index in range(len(nums)):
-            if nums[index] in num_index:
-                num_index[nums[index]].append(index)
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in prevMap:
+                twoSumIndex = [i, prevMap[diff]]
             else:
-                num_index[nums[index]] = [index]
+                prevMap[n] = i
 
-        if len(num_index.get(target // 2, [])) > 1:
-            result = num_index[target // 2]
-            return result
+        return twoSumIndex
 
-        for num in nums:
-            search = target - num
-            if search in num_index and search != num:
-                result = [ num_index[num][0], num_index[search][0]]
-                break
-
-        return result
-        
