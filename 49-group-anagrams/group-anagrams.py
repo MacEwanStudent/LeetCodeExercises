@@ -1,11 +1,13 @@
-from typing import List
-from collections import defaultdict
-
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        groupAnagramLists= defaultdict(list)
+        primes = [
+            2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41,
+            43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101
+        ]
+        group_anagram = defaultdict(list)
+
         for word in strs:
-            sorted_word = ''.join(sorted(word))
-            groupAnagramLists[sorted_word].append(word)
-        #Converts the ouput into a List[List[str] as per instructions.
-        return list(groupAnagramLists.values())
+            key = math.prod(primes[ord(c) - ord('a')] for c in word)
+            group_anagram[key].append(word)
+            
+        return list(group_anagram.values())
