@@ -1,15 +1,13 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        prevMap = {} # val : index
-        twoSumIndex= []
+        dict_nums={}
 
-        for i, n in enumerate(nums):
-            diff = target - n
-            if diff in prevMap:
-                twoSumIndex = [i, prevMap[diff]]
-                break
+        for i in range(0, len(nums)):
+            diff = target - nums[i]
+
+            if diff in dict_nums:
+                return [i, dict_nums[diff]]
             else:
-                prevMap[n] = i
+                dict_nums[nums[i]] = i
 
-        return twoSumIndex
-
+        return []
